@@ -1,0 +1,3 @@
+mesh='PATH_TO_MESH' # Mesh Path
+material='PATH_TO_MATERIAL'
+# ADD MORE DATA HERE!

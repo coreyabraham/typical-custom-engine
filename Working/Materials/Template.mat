@@ -1,0 +1,4 @@
+diffuse='PATH_TO_DIFFUSE' # Diffuse Texture
+normal='PATH_TO_NORMAL' # Normal Texture
+specular='PATH_TO_SPECULAR' # Specular Texture
+flat='PATH_TO_FLAT' # Flat (Base) Texture

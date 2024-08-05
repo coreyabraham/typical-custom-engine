@@ -1,0 +1,1 @@
+This is where all Materials are exported into using the built in "Material Editor" for the project, please refer to that in order to understand how this file structure works!

@@ -1,0 +1,88 @@
+﻿  glad.c
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  Application.cpp
+  AppUI.cpp
+  EntryPoint.cpp
+  ShaderProgram.cpp
+  Utilities.cpp
+  WindowInfo.cpp
+  WindowInfo.h
+Release\WindowInfo.obj : warning LNK4042: object specified more than once; extras ignored
+angelscript.lib(as_scriptengine.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_typeinfo.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_callfunc.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_context.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_string.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_scriptobject.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_thread.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_memory.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_builder.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_globalproperty.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_module.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_tokenizer.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_objecttype.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_atomic.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_generic.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_scriptfunction.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_configgroup.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_gc.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_datatype.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_scriptnode.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_callfunc_x86.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_string_util.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_parser.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_compiler.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_outputbuffer.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_bytecode.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_scriptcode.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_restore.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+angelscript.lib(as_variablescope.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in Application.obj
+     Creating library C:\Users\Server PC\Desktop\Typical Custom Engine\Release\Project.lib and object C:\Users\Server PC\Desktop\Typical Custom Engine\Release\Project.exp
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetClipboardString
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetInputMode
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetWindowAttrib
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetTime
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetMonitorCallback
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetFramebufferSize
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetClipboardString
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetMouseButton
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetCursorEnterCallback
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetWindowSize
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetMouseButtonCallback
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetCursor
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwDestroyCursor
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetKeyCallback
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetScrollCallback
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetInputMode
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwCreateStandardCursor
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetJoystickAxes
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetJoystickButtons
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetCursorPos
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetWin32Window
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwGetCursorPos
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetWindowFocusCallback
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetErrorCallback
+imgui_impl_glfw.obj : error LNK2001: unresolved external symbol _glfwSetCharCallback
+Application.obj : error LNK2001: unresolved external symbol _glfwSwapBuffers
+Application.obj : error LNK2001: unresolved external symbol _glfwGetKey
+Application.obj : error LNK2001: unresolved external symbol _glfwTerminate
+Application.obj : error LNK2001: unresolved external symbol _glfwGetWindowContentScale
+Application.obj : error LNK2001: unresolved external symbol _glfwPollEvents
+Application.obj : error LNK2001: unresolved external symbol _glfwDestroyWindow
+Application.obj : error LNK2001: unresolved external symbol _glfwSetWindowSizeCallback
+Application.obj : error LNK2001: unresolved external symbol _glfwWindowShouldClose
+WindowInfo.obj : error LNK2001: unresolved external symbol _glfwSwapInterval
+WindowInfo.obj : error LNK2001: unresolved external symbol _glfwGetVideoMode
+WindowInfo.obj : error LNK2001: unresolved external symbol _glfwInit
+WindowInfo.obj : error LNK2001: unresolved external symbol _glfwCreateWindow
+WindowInfo.obj : error LNK2001: unresolved external symbol _glfwMakeContextCurrent
+WindowInfo.obj : error LNK2001: unresolved external symbol _glfwSetWindowUserPointer
+WindowInfo.obj : error LNK2001: unresolved external symbol _glfwGetPrimaryMonitor
+C:\Users\Server PC\Desktop\Typical Custom Engine\Release\Project.exe : fatal error LNK1120: 40 unresolved externals

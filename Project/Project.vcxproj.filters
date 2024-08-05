@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{4fc4db59-aae3-4e74-afb2-cbb5d6f3f2ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Headers">
+      <UniqueIdentifier>{d2128205-7c27-4f7d-ac69-2a11b4554a61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Sources">
+      <UniqueIdentifier>{608be86a-8c3a-4c72-9d6b-81a757d9318c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project">
+      <UniqueIdentifier>{a01d423a-5563-4f13-bd3f-6246ec9ab69e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Headers">
+      <UniqueIdentifier>{46f69a68-7fbc-437d-a875-f3738ca9ec55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Sources">
+      <UniqueIdentifier>{1649f4f2-aeb6-4db0-bc92-e92449060565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{796b8c1d-155d-4d7b-a95c-d240974a6ed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\Miscellaneous">
+      <UniqueIdentifier>{da28bf89-9848-48cf-9730-feb74931fe6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\ImGui">
+      <UniqueIdentifier>{6debb357-4bc0-47c1-a196-f30073a18548}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WindowInfo.h">
+      <Filter>Engine\Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowInfo.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilities.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Project\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AppUI.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryPoint.cpp" />
+    <ClCompile Include="..\Dependencies\GLAD\glad.c">
+      <Filter>Dependencies\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui_demo.cpp">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui_draw.cpp">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui_impl_glfw.cpp">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui_impl_opengl3.cpp">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui_tables.cpp">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui_widgets.cpp">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui.cpp">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Graphics.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Project\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="AppUI.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imgui.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imgui_impl_glfw.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imgui_impl_opengl3.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imgui_impl_opengl3_loader.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imgui_internal.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imstb_rectpack.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imstb_textedit.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imstb_truetype.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\dirent.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imconfig.h">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Angelscripting.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
