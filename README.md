@@ -13,7 +13,7 @@ To produce the final product, "Typical Custom Engine" utilizes multiple dependen
 
 - [OpenGL](https://www.opengl.org/) : A widely known Rendering API that can run on several Operating Systems and devices.
 - [GLFW](https://www.glfw.org/) : A utility library for OpenGL to make initalizing and managing OpenGL easier.
-- [Assimp]([url](https://assimp.org/)) : An asset importer can import meshes with all their verticies, among other things into the application runtime.
+- [Assimp]((https://assimp.org/) : An asset importer can import meshes with all their verticies, among other things into the application runtime.
 - [FMOD](https://www.fmod.com/) : An adaptive audio library system, used to manage playback of all audio within the engine.
 - [AngelScript](http://angelcode.com/angelscript/) : A scripting language designed to emulate the feel of C with it's type-notation, with the versatility and ease-of-use of Lua.
 
