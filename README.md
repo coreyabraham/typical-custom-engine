@@ -14,8 +14,8 @@ To produce the final product, "Typical Custom Engine" utilizes multiple dependen
 - [OpenGL](https://www.opengl.org/) : A widely known Rendering API that can run on several Operating Systems and devices.
 - [GLFW](https://www.glfw.org/) : A utility library for OpenGL to make initalizing and managing OpenGL easier.
 - [Assimp](https://assimp.org/) : An asset importer can import meshes with all their verticies, among other things into the application runtime.
-- [FMOD](https://www.fmod.com/) : An adaptive audio library system, used to manage playback of all audio within the engine.
-- [AngelScript](http://angelcode.com/angelscript/) : A scripting language designed to emulate the feel of C with it's type-notation, with the versatility and ease-of-use of Lua.
+- [MINIAUDIO](https://miniaud.io/index.html) : A single header audio library system, used to manage playback of all audio within the engine.
+- [AngelScript](https://www.lua.org/) : An efficient and easy-to-use scripting language, used to implement scriptable objects and to manage code without the need of re-compiling or tampering with the engine code-base itself.
 
 ## Usage
 If you simply want to use the engine without using it's source code, then head on over to the [releases](https://github.com/coreyabraham/typical-custom-engine/releases) tab!
