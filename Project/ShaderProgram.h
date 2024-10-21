@@ -40,4 +40,5 @@ public:
 	void SetIntUniform(std::string varName, int value);
 
 	void SetMat4Uniform(std::string varName, float* matrix);
+	void SetVec3VArrayUniform(std::string varName, std::vector<vec3> values);
 };

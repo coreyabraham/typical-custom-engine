@@ -1,9 +1,16 @@
 #pragma once
 
-#include "WindowInfo.h"
-#include "Angelscripting.h"
-#include "ShaderProgram.h"
 #include "AppUI.h"
+#include "WindowInfo.h"
+#include "ShaderProgram.h"
+
+#include "Camera.h"
+#include "Light.h"
+
+#include "Mesh.h"
+#include "Texture.h"
+
+#include "LuaInCPP.h"
 
 class Application
 {
@@ -12,60 +19,20 @@ private:
 	vec2 Resolution = { 1280, 720 };
 
 	WindowInfo windowInfo;
+	
 	ShaderProgram* shader;
 	AppUI* ui;
 
-	asIScriptEngine* scriptEngine = nullptr;
+	Camera camera;
 
 	GLuint vertexBufferID = 0;
-	std::vector<float> someFloats
-	{
-		0, 0, 0,    0, 0, 1,
-		0, 1, 0,    0, 0, 1,
-		1, 0, 0,    0, 0, 1,
-		0, 1, 0,    0, 0, 1,
-		1, 0, 0,    0, 0, 1,
-		1, 1, 0,    0, 0, 1,
 
-		0, 0, 1,    1, 1, 0,
-		0, 1, 1,    1, 1, 0,
-		1, 0, 1,    1, 1, 0,
-		0, 1, 1,    1, 1, 0,
-		1, 0, 1,    1, 1, 0,
-		1, 1, 1,    1, 1, 0,
+	LuaInCPP::Controller LuaController;
 
-
-		0, 0, 0,    0, 1, 0,
-		0, 0, 1,    0, 1, 0,
-		1, 0, 0,    0, 1, 0,
-		0, 0, 1,    0, 1, 0,
-		1, 0, 0,    0, 1, 0,
-		1, 0, 1,    0, 1, 0,
-
-		0, 1, 0,    1, 0, 1,
-		0, 1, 1,    1, 0, 1,
-		1, 1, 0,    1, 0, 1,
-		0, 1, 1,    1, 0, 1,
-		1, 1, 0,    1, 0, 1,
-		1, 1, 1,    1, 0, 1,
-
-
-		0, 0, 0,    1, 0, 0,
-		0, 0, 1,    1, 0, 0,
-		0, 1, 0,    1, 0, 0,
-		0, 0, 1,    1, 0, 0,
-		0, 1, 0,    1, 0, 0,
-		0, 1, 1,    1, 0, 0,
-
-		1, 0, 0,    0, 1, 1,
-		1, 0, 1,    0, 1, 1,
-		1, 1, 0,    0, 1, 1,
-		1, 0, 1,    0, 1, 1,
-		1, 1, 0,    0, 1, 1,
-		1, 1, 1,    0, 1, 1,
-	};
-
+	std::vector<Light*> lights;
+	std::vector<GameObject*> objects;
 protected:
+
 	bool IsRunning() const;
 	void Update(float deltaTime);
 public:

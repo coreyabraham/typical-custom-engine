@@ -1,4 +1,2 @@
 ﻿  Application.cpp
-C:\Users\Server PC\Desktop\Typical Custom Engine\Project\Application.cpp(119,50): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-C:\Users\Server PC\Desktop\Typical Custom Engine\Project\Application.cpp(128,50): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-  Project.vcxproj -> C:\Users\Server PC\Desktop\Typical Custom Engine\x64\Debug\Project.exe
+  Project.vcxproj -> E:\GitHub\typical-custom-engine\x64\Debug\Project.exe

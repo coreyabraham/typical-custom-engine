@@ -1,6 +1,8 @@
 #include "ShaderProgram.h"
 #include "Utilities.h"
+
 #include <iostream>
+#include <sstream>
 
 ShaderProgram::ShaderProgram(std::string vertexFilename, std::string fragmentFilename)
 {
@@ -204,4 +206,16 @@ void ShaderProgram::SetMat4Uniform(std::string varName, float* matrix)
 {
 	GLuint varLoc = glGetUniformLocation(shaderProgram, varName.c_str());
 	glUniformMatrix4fv(varLoc, 1, GL_FALSE, matrix);
+}
+
+void ShaderProgram::SetVec3VArrayUniform(std::string varName, std::vector<vec3> values)
+{
+	for (int i = 0; i < values.size(); i++)
+	{
+		std::stringstream str;
+		str << varName.c_str() << "[" << i << "]";
+
+		GLint varLoc = glGetUniformLocation(shaderProgram, str.str().c_str());
+		glUniform3f(varLoc, values[i].x, values[i].y, values[i].z);
+	}
 }

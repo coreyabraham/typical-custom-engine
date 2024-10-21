@@ -1,43 +1,45 @@
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\vc143.pdb
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\vc143.idb
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\glad.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\windowinfo.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\utilities.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\shaderprogram.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\entrypoint.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\appui.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\application.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\imgui_widgets.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\imgui_tables.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\imgui_impl_opengl3.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\imgui_impl_glfw.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\imgui_draw.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\imgui_demo.obj
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\imgui.obj
-c:\users\server pc\desktop\typical custom engine\x64\debug\project.pdb
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\cl.command.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\cl.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\cl.write.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link-cvtres.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link-cvtres.write.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link-rc.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link-rc.write.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.18388.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.18388.write.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.19148.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.19148.write.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.29608.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.29608.write.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.29656.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.29656.write.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.36568.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.36568.write.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.5132.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.5132.write.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.command.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.delete.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.read.1.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.read.2.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.read.3.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.read.4.tlog
-c:\users\server pc\desktop\typical custom engine\project\x64\debug\project.tlog\link.write.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\vc143.pdb
+e:\github\typical-custom-engine\project\x64\debug\vc143.idb
+e:\github\typical-custom-engine\project\x64\debug\gl_core_4_4.obj
+e:\github\typical-custom-engine\project\x64\debug\glad.obj
+e:\github\typical-custom-engine\project\x64\debug\windowinfo.obj
+e:\github\typical-custom-engine\project\x64\debug\vertex.obj
+e:\github\typical-custom-engine\project\x64\debug\utilities.obj
+e:\github\typical-custom-engine\project\x64\debug\texture.obj
+e:\github\typical-custom-engine\project\x64\debug\shaderprogram.obj
+e:\github\typical-custom-engine\project\x64\debug\mesh.obj
+e:\github\typical-custom-engine\project\x64\debug\glfwcallbacks.obj
+e:\github\typical-custom-engine\project\x64\debug\gameobject.obj
+e:\github\typical-custom-engine\project\x64\debug\entrypoint.obj
+e:\github\typical-custom-engine\project\x64\debug\camera.obj
+e:\github\typical-custom-engine\project\x64\debug\appui.obj
+e:\github\typical-custom-engine\project\x64\debug\application.obj
+e:\github\typical-custom-engine\project\x64\debug\imgui_widgets.obj
+e:\github\typical-custom-engine\project\x64\debug\imgui_tables.obj
+e:\github\typical-custom-engine\project\x64\debug\imgui_impl_opengl3.obj
+e:\github\typical-custom-engine\project\x64\debug\imgui_impl_glfw.obj
+e:\github\typical-custom-engine\project\x64\debug\imgui_draw.obj
+e:\github\typical-custom-engine\project\x64\debug\imgui_demo.obj
+e:\github\typical-custom-engine\project\x64\debug\imgui.obj
+e:\github\typical-custom-engine\x64\debug\project.lib
+e:\github\typical-custom-engine\x64\debug\project.exp
+e:\github\typical-custom-engine\project\x64\debug\project.ilk
+e:\github\typical-custom-engine\x64\debug\project.pdb
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\cl.read.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\cl.write.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\cl.command.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.read.3.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.write.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.secondary.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.command.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\cl.items.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.13476.read.3.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.13476.read.2.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.13476-rc.read.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.13476-rc.write.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.13476-cvtres.read.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.13476-cvtres.write.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.13476.read.4.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.13476.read.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.13476.write.1.tlog
+e:\github\typical-custom-engine\project\x64\debug\project.tlog\link.read.1.tlog

@@ -1,15 +1,22 @@
-C:\Users\Server PC\Desktop\Typical Custom Engine\Dependencies\GLAD\glad.c;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\glad.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Dependencies\ImGui\imgui.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\imgui.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Dependencies\ImGui\imgui_demo.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\imgui_demo.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Dependencies\ImGui\imgui_draw.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\imgui_draw.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Dependencies\ImGui\imgui_impl_glfw.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\imgui_impl_glfw.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Dependencies\ImGui\imgui_impl_opengl3.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\imgui_impl_opengl3.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Dependencies\ImGui\imgui_tables.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\imgui_tables.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Dependencies\ImGui\imgui_widgets.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\imgui_widgets.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Project\Application.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\Application.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Project\AppUI.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\AppUI.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Project\EntryPoint.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\EntryPoint.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Project\ShaderProgram.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\ShaderProgram.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Project\Utilities.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\Utilities.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Project\WindowInfo.cpp;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\WindowInfo.obj
-C:\Users\Server PC\Desktop\Typical Custom Engine\Project\WindowInfo.h;C:\Users\Server PC\Desktop\Typical Custom Engine\Project\x64\Debug\WindowInfo.obj
+E:\GitHub\typical-custom-engine\Dependencies\GLAD\glad.c;E:\GitHub\typical-custom-engine\Project\x64\Debug\glad.obj
+E:\GitHub\typical-custom-engine\Dependencies\GLAD\gl_core_4_4.c;E:\GitHub\typical-custom-engine\Project\x64\Debug\gl_core_4_4.obj
+E:\GitHub\typical-custom-engine\Dependencies\ImGui\imgui.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\imgui.obj
+E:\GitHub\typical-custom-engine\Dependencies\ImGui\imgui_demo.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\imgui_demo.obj
+E:\GitHub\typical-custom-engine\Dependencies\ImGui\imgui_draw.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\imgui_draw.obj
+E:\GitHub\typical-custom-engine\Dependencies\ImGui\imgui_impl_glfw.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\imgui_impl_glfw.obj
+E:\GitHub\typical-custom-engine\Dependencies\ImGui\imgui_impl_opengl3.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\imgui_impl_opengl3.obj
+E:\GitHub\typical-custom-engine\Dependencies\ImGui\imgui_tables.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\imgui_tables.obj
+E:\GitHub\typical-custom-engine\Dependencies\ImGui\imgui_widgets.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\imgui_widgets.obj
+E:\GitHub\typical-custom-engine\Project\Application.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\Application.obj
+E:\GitHub\typical-custom-engine\Project\AppUI.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\AppUI.obj
+E:\GitHub\typical-custom-engine\Project\Camera.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\Camera.obj
+E:\GitHub\typical-custom-engine\Project\EntryPoint.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\EntryPoint.obj
+E:\GitHub\typical-custom-engine\Project\GameObject.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\GameObject.obj
+E:\GitHub\typical-custom-engine\Project\GLFWCallbacks.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\GLFWCallbacks.obj
+E:\GitHub\typical-custom-engine\Project\Mesh.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\Mesh.obj
+E:\GitHub\typical-custom-engine\Project\ShaderProgram.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\ShaderProgram.obj
+E:\GitHub\typical-custom-engine\Project\Texture.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\Texture.obj
+E:\GitHub\typical-custom-engine\Project\Utilities.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\Utilities.obj
+E:\GitHub\typical-custom-engine\Project\Vertex.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\Vertex.obj
+E:\GitHub\typical-custom-engine\Project\WindowInfo.cpp;E:\GitHub\typical-custom-engine\Project\x64\Debug\WindowInfo.obj
+E:\GitHub\typical-custom-engine\Project\WindowInfo.h;E:\GitHub\typical-custom-engine\Project\x64\Debug\WindowInfo.obj

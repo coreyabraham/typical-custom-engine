@@ -22,11 +22,11 @@
     <Filter Include="Dependencies">
       <UniqueIdentifier>{796b8c1d-155d-4d7b-a95c-d240974a6ed7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Dependencies\Miscellaneous">
-      <UniqueIdentifier>{da28bf89-9848-48cf-9730-feb74931fe6c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Dependencies\ImGui">
       <UniqueIdentifier>{6debb357-4bc0-47c1-a196-f30073a18548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\GLAD">
+      <UniqueIdentifier>{da28bf89-9848-48cf-9730-feb74931fe6c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -50,7 +50,10 @@
     </ClCompile>
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="..\Dependencies\GLAD\glad.c">
-      <Filter>Dependencies\Miscellaneous</Filter>
+      <Filter>Dependencies\GLAD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui.cpp">
+      <Filter>Dependencies\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\Dependencies\ImGui\imgui_demo.cpp">
       <Filter>Dependencies\ImGui</Filter>
@@ -70,8 +73,26 @@
     <ClCompile Include="..\Dependencies\ImGui\imgui_widgets.cpp">
       <Filter>Dependencies\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dependencies\ImGui\imgui.cpp">
-      <Filter>Dependencies\ImGui</Filter>
+    <ClCompile Include="GLFWCallbacks.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Engine\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\GLAD\gl_core_4_4.c">
+      <Filter>Dependencies\GLAD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +113,12 @@
     </ClInclude>
     <ClInclude Include="AppUI.h">
       <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\ImGui\imconfig.h">
+      <Filter>Dependencies\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="..\Dependencies\ImGui\imgui.h">
       <Filter>Dependencies\ImGui</Filter>
@@ -120,14 +147,35 @@
     <ClInclude Include="..\Dependencies\ImGui\dirent.h">
       <Filter>Dependencies\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dependencies\ImGui\imconfig.h">
-      <Filter>Dependencies\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="Angelscripting.h">
+    <ClInclude Include="GLFWCallbacks.h">
       <Filter>Engine\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
+    <ClInclude Include="Shapes.h">
       <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\GLAD\glad.h">
+      <Filter>Dependencies\GLAD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\GLAD\gl_core_4_4.h">
+      <Filter>Dependencies\GLAD</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

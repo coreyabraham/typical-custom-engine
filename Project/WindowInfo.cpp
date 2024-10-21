@@ -1,8 +1,25 @@
 #include "WindowInfo.h"
-#include "iostream"
+#include "Utilities.h"
+
+#include <iostream>
+#include <vector>
 
 int WindowInfo::SetupWindow()
 {
+	std::vector<std::string> contents = LoadFileAsStringVector("config.conf");
+
+	if (!contents.empty())
+	{
+		std::cout << "READING: `config.conf`\n\n";
+
+		for (int i = 0; i < contents.size(); i++)
+		{
+			// split string via `=`, figure out what the variable name is via a switch case and then grab it's value and use it!
+		}
+
+		std::cout << "\nFINISHED READING: `config.conf`\n\n";
+	}
+
 	window = nullptr;
 
 	if (!glfwInit())

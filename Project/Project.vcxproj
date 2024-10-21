@@ -71,20 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\AngelScript\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\;$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\AngelScript\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\;$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\AngelScript\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\;$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\AngelScript\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\;$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -92,13 +92,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\include\assimp;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\STB_Image;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\KHR;$(SolutionDir)Dependencies\AngelScript\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>assimp-vc143-mt.lib;assimp-vc143-mtd.lib;zlibstatic.lib;zlibstaticd.lib;glfw3.lib;angelscriptd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\AngelScript\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glfw3_mt.lib;glfw3dll.lib;lua54.lib;LuaLibrary.lib;assimp-vc143-mtd.lib;zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\Assimp\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -109,15 +109,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\include\assimp;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\STB_Image;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\KHR;$(SolutionDir)Dependencies\AngelScript\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>assimp-vc143-mt.lib;assimp-vc143-mtd.lib;zlibstatic.lib;zlibstaticd.lib;glfw3.lib;angelscript.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\AngelScript\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glfw3_mt.lib;glfw3dll.lib;lua54.lib;LuaLibrary.lib;assimp-vc143-mt.lib;zlibstatic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\Assimp\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -126,13 +126,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\include\assimp;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\STB_Image;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\KHR;$(SolutionDir)Dependencies\AngelScript\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>assimp-vc143-mt.lib;assimp-vc143-mtd.lib;zlibstatic.lib;zlibstaticd.lib;glfw3.lib;angelscript64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\AngelScript\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;lua54.lib;LuaLibrary.lib;assimp-vc143-mtd.lib;zlibstatic.lib;zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\Assimp\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,19 +143,20 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\AssImp\include\assimp;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\STB_Image;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\KHR;$(SolutionDir)Dependencies\AngelScript\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>assimp-vc143-mt.lib;assimp-vc143-mtd.lib;zlibstatic.lib;zlibstaticd.lib;glfw3.lib;angelscript64.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\AngelScript\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glfw3_mt.lib;glfw3dll.lib;lua54.lib;LuaLibrary.lib;assimp-vc143-mt.lib;zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\Assimp\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Dependencies\GLAD\glad.c" />
+    <ClCompile Include="..\Dependencies\GLAD\gl_core_4_4.c" />
     <ClCompile Include="..\Dependencies\ImGui\imgui.cpp" />
     <ClCompile Include="..\Dependencies\ImGui\imgui_demo.cpp" />
     <ClCompile Include="..\Dependencies\ImGui\imgui_draw.cpp" />
@@ -165,13 +166,21 @@
     <ClCompile Include="..\Dependencies\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="AppUI.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GLFWCallbacks.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Utilities.cpp" />
+    <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="WindowInfo.cpp" />
     <ClCompile Include="WindowInfo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Dependencies\GLAD\glad.h" />
+    <ClInclude Include="..\Dependencies\GLAD\gl_core_4_4.h" />
     <ClInclude Include="..\Dependencies\ImGui\dirent.h" />
     <ClInclude Include="..\Dependencies\ImGui\imconfig.h" />
     <ClInclude Include="..\Dependencies\ImGui\imgui.h" />
@@ -182,14 +191,21 @@
     <ClInclude Include="..\Dependencies\ImGui\imstb_rectpack.h" />
     <ClInclude Include="..\Dependencies\ImGui\imstb_textedit.h" />
     <ClInclude Include="..\Dependencies\ImGui\imstb_truetype.h" />
-    <ClInclude Include="Angelscripting.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="AppUI.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GLFWCallbacks.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="Maths.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="Shapes.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Utilities.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,5 @@
+DO NOT REMOVE THESE, THESE ARE USED AS THE "Default" SHADERS!
+
+If you remove these, it's very likely that the Engine will become incredibly confused and try to render via shaders that aren't present, so just keep that in the back of your mind if you ever mess with these!
+
+You can import and request shaders to load via Lua Scripting, please read the provided documentation to find out more in regards to how you can do this!
