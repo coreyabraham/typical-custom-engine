@@ -15,7 +15,7 @@ To produce the final product, "Typical Custom Engine" utilizes multiple dependen
 - [GLFW](https://www.glfw.org/) : A utility library for OpenGL to make initalizing and managing OpenGL easier.
 - [Assimp](https://assimp.org/) : An asset importer can import meshes with all their verticies, among other things into the application runtime.
 - [MINIAUDIO](https://miniaud.io/index.html) : A single header audio library system, used to manage playback of all audio within the engine.
-- [AngelScript](https://www.lua.org/) : An efficient and easy-to-use scripting language, used to implement scriptable objects and to manage code without the need of re-compiling or tampering with the engine code-base itself.
+- [Lua](https://www.lua.org/) : An efficient and easy-to-use scripting language, used to implement scriptable objects and to manage code without the need of re-compiling or tampering with the engine code-base itself.
 
 ## Usage
 If you simply want to use the engine without using it's source code, then head on over to the [releases](https://github.com/coreyabraham/typical-custom-engine/releases) tab!
