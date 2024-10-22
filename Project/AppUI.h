@@ -3,16 +3,13 @@
 #include "imgui.h"
 #include "Graphics.h"
 
-class Application;
+#include "Application.h"
 
-class AppUI
+class AppUI : public Application
 {
 public:
 	AppUI() = default;
-	~AppUI();
+	~AppUI() = default;
 
-	void Initalize(GLFWwindow* window, bool installCallbacks, float pixelDensityScale);
-
-	void Update(Application* app, float deltaTime);
-	void Render();
+	void OpenUpdate(float deltaTime);
 };

@@ -14,7 +14,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -24,7 +23,6 @@
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
@@ -33,3 +31,7 @@
 
 # VS Cache
 .vs
+
+# Ignore Bigger Library Files (Please find a solution to this in the near future!)
+Dependencies/AssImp/lib/assimp-vc143-mt.lib
+Dependencies/AssImp/lib/assimp-vc143-mtd.lib

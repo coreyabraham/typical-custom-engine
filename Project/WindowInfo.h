@@ -35,7 +35,7 @@ public:
 	void SetAspectRatio(float AspectRatio) {  } // Empty until implemented!
 
 	unsigned int GetWindowFramerate() const { return framerate; }
-	void SetWindowFramerate(unsigned int Framerate) {  }; // Empty until implemented!
+	void SetWindowFramerate(unsigned int Framerate) { framerate = Framerate; }; // Empty until implemented!
 
 	float* GetWindowColour() { return bgColour; };
 	void SetWindowColour(float colour[3]);

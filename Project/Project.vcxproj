@@ -197,6 +197,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GLFWCallbacks.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Mesh.h" />

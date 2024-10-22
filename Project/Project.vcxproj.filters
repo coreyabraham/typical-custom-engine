@@ -28,6 +28,9 @@
     <Filter Include="Dependencies\GLAD">
       <UniqueIdentifier>{da28bf89-9848-48cf-9730-feb74931fe6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Headers\Data">
+      <UniqueIdentifier>{7c76333a-4e48-4af0-88be-b6eff00b1e5e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WindowInfo.h">
@@ -96,12 +99,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Graphics.h">
-      <Filter>Engine\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths.h">
-      <Filter>Engine\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Utilities.h">
       <Filter>Engine\Headers</Filter>
     </ClInclude>
@@ -150,9 +147,6 @@
     <ClInclude Include="GLFWCallbacks.h">
       <Filter>Engine\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Shapes.h">
-      <Filter>Engine\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Engine\Headers</Filter>
     </ClInclude>
@@ -176,6 +170,18 @@
     </ClInclude>
     <ClInclude Include="..\Dependencies\GLAD\gl_core_4_4.h">
       <Filter>Dependencies\GLAD</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Engine\Headers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths.h">
+      <Filter>Engine\Headers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Engine\Headers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes.h">
+      <Filter>Engine\Headers\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
