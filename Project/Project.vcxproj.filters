@@ -48,9 +48,6 @@
     <ClCompile Include="ShaderProgram.cpp">
       <Filter>Engine\Sources</Filter>
     </ClCompile>
-    <ClCompile Include="AppUI.cpp">
-      <Filter>Engine\Sources</Filter>
-    </ClCompile>
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="..\Dependencies\GLAD\glad.c">
       <Filter>Dependencies\GLAD</Filter>
@@ -106,9 +103,6 @@
       <Filter>Project\Headers</Filter>
     </ClInclude>
     <ClInclude Include="ShaderProgram.h">
-      <Filter>Engine\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="AppUI.h">
       <Filter>Engine\Headers</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">

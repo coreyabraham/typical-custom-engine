@@ -1,2 +1,30 @@
-﻿  Application.cpp
+﻿  glad.c
+  gl_core_4_4.c
+  Generating Code...
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  Application.cpp
+  Camera.cpp
+  EntryPoint.cpp
+  GameObject.cpp
+  GLFWCallbacks.cpp
+  Mesh.cpp
+C:\Users\s220594\Documents\GitHub\typical-custom-engine\Project\Mesh.cpp(39,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  ShaderProgram.cpp
+  Texture.cpp
+  Utilities.cpp
+  Vertex.cpp
+  WindowInfo.cpp
+  WindowInfo.h
+  Generating Code...
+x64\Debug\WindowInfo.obj : warning LNK4042: object specified more than once; extras ignored
+LuaLibrary.lib(LuaObject.obj) : warning LNK4099: PDB '' was not found with 'LuaLibrary.lib(LuaObject.obj)' or at ''; linking object as if no debug info
+LuaLibrary.lib(Controller.obj) : warning LNK4099: PDB '' was not found with 'LuaLibrary.lib(Controller.obj)' or at ''; linking object as if no debug info
+     Creating library C:\Users\s220594\Documents\GitHub\typical-custom-engine\x64\Debug\Project.lib and object C:\Users\s220594\Documents\GitHub\typical-custom-engine\x64\Debug\Project.exp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Project.vcxproj -> C:\Users\s220594\Documents\GitHub\typical-custom-engine\x64\Debug\Project.exe

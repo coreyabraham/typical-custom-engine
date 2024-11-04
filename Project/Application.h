@@ -39,6 +39,7 @@ protected:
 	std::vector<Light*> lights;
 	std::vector<GameObject*> objects;
 public:
+	Application() = default;
 	Application(int argc, char* argv[]);
 	~Application();
 
@@ -50,4 +51,6 @@ public:
 
 	void OnKeyPress(Key key);
 	void OnKeyRelease(Key key);
+
+	void DebugInterface(float deltaTime);
 };
