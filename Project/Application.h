@@ -1,5 +1,10 @@
 #pragma once
 
+constexpr auto TCE_VERSION = 0.01;
+constexpr auto TCE_AUTHOR = "Corey Abraham";
+
+#include <map>
+
 #include "WindowInfo.h"
 #include "ShaderProgram.h"
 
@@ -28,6 +33,11 @@ private:
 
 	GLuint vertexBufferID = 0;
 protected:
+	bool isSceneLoaded = false;
+
+	// <TODO> TEMPORARY VALUE, PLEASE REPLACE WITH POINTER TO LOADED SCENE CLASS!
+	int currentlyLoadedScene = 0;
+
 	bool IsRunning() const;
 	void Update(float deltaTime);
 
@@ -38,6 +48,8 @@ protected:
 
 	std::vector<Light*> lights;
 	std::vector<GameObject*> objects;
+
+	std::map<int, bool> keyCache;
 public:
 	Application() = default;
 	Application(int argc, char* argv[]);
@@ -47,7 +59,7 @@ public:
 
 	void OnMouseClick(int mouseButton);
 	void OnMouseRelease(int mouseButton);
-	void OnMouseScroll(bool positive);
+	void OnMouseScroll(double xDelta, double yDelta);
 
 	void OnKeyPress(Key key);
 	void OnKeyRelease(Key key);

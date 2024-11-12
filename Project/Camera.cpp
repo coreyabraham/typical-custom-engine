@@ -5,15 +5,15 @@ vec3 Camera::GetLookVector(CameraDirection Direction) const
 {
 	switch (Direction)
 	{
-	case CameraDirection::Up: return UP;
-	case CameraDirection::Down: return DOWN;
-	case CameraDirection::Left: return LEFT;
-	case CameraDirection::Right: return RIGHT;
+		case CameraDirection::Up: return UP;
+		case CameraDirection::Down: return DOWN;
+		case CameraDirection::Left: return LEFT;
+		case CameraDirection::Right: return RIGHT;
 
-	case CameraDirection::Front: return FRONT;
-	case CameraDirection::Back: return BACK;
+		case CameraDirection::Front: return FRONT;
+		case CameraDirection::Back: return BACK;
 
-	default: return vec3(0);
+		default: return vec3(0);
 	}
 }
 

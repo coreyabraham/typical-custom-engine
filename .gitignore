@@ -29,8 +29,20 @@
 *.out
 *.app
 
-# VS Cache
+# VS Hidden Files / Directories
 .vs
+.log
+.recipe
+.idb
+.lastbuildstate
+.enc
+.exp
+.ilk
+
+# Ignore Debug Directory
+x64/Debug
+x64/Release
+Project/x64
 
 # Ignore Bigger Library Files (Please find a solution to this in the near future!)
 Dependencies/AssImp/lib/assimp-vc143-mt.lib

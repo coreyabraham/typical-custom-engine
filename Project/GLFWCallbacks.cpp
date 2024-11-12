@@ -27,7 +27,7 @@ void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 void MouseWheelCallback(GLFWwindow* window, double xDelta, double yDelta)
 {
 	Application* programPointer = (Application*)glfwGetWindowUserPointer(window);
-	programPointer->OnMouseScroll(yDelta > 0);
+	programPointer->OnMouseScroll(xDelta, yDelta);
 }
 
 void KeyPressCallback(GLFWwindow* window, int key, int scancode, int action, int mods)

@@ -52,7 +52,8 @@ public:
 	void SetWindowTitle(const char* Title) { glfwSetWindowTitle(window, Title); };
 
 	float GetAspectRatio() const { return aspectRatio; }
-	void SetAspectRatio(float AspectRatio) {  } // Empty until implemented!
+
+	void GetWindowResolution(unsigned int& Width, unsigned int& Height) { Width = width; Height = height; };
 
 	unsigned int GetWindowFramerate() const { return framerate; }
 	void SetWindowFramerate(unsigned int Framerate) { framerate = Framerate; }; // Empty until implemented!

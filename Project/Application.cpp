@@ -1,3 +1,27 @@
+/*
+    General TODO's:
+        - Fix LuaInCPP Library not currently assigning memory consistently
+        - Finally implement MINIAUDIO as seen below (rename `LuaController.GetObject()` to get it to work)
+        - Update `WindowInfo` to have Framerates, Resolutions, etc be easier to tinker with during Runtime
+        - Update `File Configuration` Steps within `WindowInfo` to properly work without crashing GLFW when attempting to Initialize
+        - Move ImGui Implementation and it's Header Definitions out of this file and into it's own UI File(s)
+        - Replace ImGui Main branch variant with it's Docking branch counterpart!
+        - Start developing the Engine Main Menu Interface as well as the rest of the UI that's meant to be used (I.e: When you're actually in the scene)
+        - Write Scene Saving and Loading System
+        - Create Load, Delete and New Scene Systems
+        - Add more depth into Lighting and GameObject Systems
+        - Actually introduce Namespaces into the Engine so as to simplify and unify code-design later on
+        - Move GLFW configuration and Initialization into it's own file(s)
+        - Use `EntryPoint.cpp` for more than just a simple pointer to the `Application` class!
+
+    Research TODO's:
+        - Look into how the following engines work around problems and how they introduce solutions (I.e; UI, Design, etc)
+            > Godot Engine
+            > Unity Engine
+            > Unreal Engine
+            > Roblox Studio
+*/
+
 #include "Application.h"
 #include "GLFWCallbacks.h"
 
@@ -51,25 +75,31 @@ Application::Application(int argc, char* argv[])
     camera.CameraType = CameraType::Free;
     camera.Position = vec3(0, 0, 0);
 
-    //Light light;
-    //light.direction = vec3(0, 1, 0);
-    //light.colour = vec3(1, 1, 1);
+    Light light;
+    light.direction = vec3(0, 1, 0);
+    light.colour = vec3(1, 1, 1);
 
-    //lights.push_back(&light);
+    lights.push_back(&light);
 
-    //Mesh testMesh;
-    ////testMesh.CreateFromFile("Meshes\\soulspear.obj");
-    //testMesh.SetShape(ShapeType::Shape_Cube);
-    //testMesh.CreateShape();
+    Mesh testMesh;
+    //testMesh.CreateFromFile("Meshes\\soulspear.obj");
+    testMesh.SetShape(ShapeType::Shape_Cube);
+    testMesh.CreateShape();
 
-    //GameObject* obj = new GameObject();
-    //obj->mesh = &testMesh;
+    GameObject* obj = new GameObject();
+    obj->mesh = &testMesh;
 
-    //obj->diffuseTexture = new Texture("Textures\\Soulspear\\soulspear_diffuse.tga");
-    //obj->normalTexture = new Texture("Textures\\Soulspear\\soulspear_normal.tga");
-    //obj->specularTexture = new Texture("Textures\\Soulspear\\soulspear_specular.tga");
+    obj->diffuseTexture = new Texture("Textures\\Soulspear\\soulspear_diffuse.tga");
+    obj->normalTexture = new Texture("Textures\\Soulspear\\soulspear_normal.tga");
+    obj->specularTexture = new Texture("Textures\\Soulspear\\soulspear_specular.tga");
 
-    //objects.push_back(obj);
+    objects.push_back(obj);
+
+    for (int i = (int)Key::Space; i < (int)Key::Invalid - 1; i++)
+    {
+        keyCache.insert({ (int)(Key)i, false });
+        std::cout << "Key: " << (int)(Key)i << " has been added into the keyCache!\n";
+    }
 
     Run();
 }
@@ -127,6 +157,21 @@ void Application::Update(float deltaTime)
     glfwGetCursorPos(windowInfo.window, &xpos, &ypos);
     cursorPos = vec2(xpos, ypos);
 
+    for (auto& iterator : keyCache)
+    {
+        if (!iterator.second) continue;
+
+        switch ((Key)iterator.first)
+        {
+            case Key::W: camera.Position += (camera.Speed * camera.GetLookVector(Front)) * deltaTime; break;
+            case Key::S: camera.Position -= (camera.Speed * camera.GetLookVector(Front)) * deltaTime; break;
+            case Key::A: camera.Position -= (glm::normalize(glm::cross(camera.GetLookVector(Front), camera.GetLookVector(Up))) * camera.Speed) * deltaTime; break;
+            case Key::D: camera.Position += (glm::normalize(glm::cross(camera.GetLookVector(Front), camera.GetLookVector(Up))) * camera.Speed) * deltaTime; break;
+            case Key::Q: camera.Position.y -= (camera.Speed * deltaTime); break;
+            case Key::E: camera.Position.y += (camera.Speed * deltaTime); break;
+        }
+    }
+
     mat4 vpMatrix = camera.Draw(windowInfo.GetAspectRatio());
     shader->SetVec3Uniform("cameraPos", camera.Position);
 
@@ -171,22 +216,28 @@ void Application::OnMouseRelease(int mouseButton)
     std::cout << "Released: " << mouseButton << "\n";
 }
 
-void Application::OnMouseScroll(bool positive)
+void Application::OnMouseScroll(double xDelta, double yDelta)
 {
     if (ImGuiWantsMouse) return;
-    // SCROLLBACK GOES HERE!
+    std::cout << "X Delta: " << xDelta << ", Y Delta: " << yDelta << "\n";
 }
 
 void Application::OnKeyPress(Key key)
 {
     if (ImGuiWantsMouse) return;
     std::cout << "Pressed: " << (int)key << "\n";
+    
+    if (keyCache.find((int)key) != keyCache.end())
+        keyCache[(int)key] = true;
 }
 
 void Application::OnKeyRelease(Key key)
 {
     if (ImGuiWantsMouse) return;
     std::cout << "Released: " << (int)key << "\n";
+    
+    if (keyCache.find((int)key) != keyCache.end())
+        keyCache[(int)key] = false;
 }
 
 void Application::DebugInterface(float deltaTime)
@@ -197,7 +248,64 @@ void Application::DebugInterface(float deltaTime)
     ImGui::SetNextWindowPos(ImVec2(main_viewport->WorkPos.x + 50, main_viewport->WorkPos.y + 20), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowSize(ImVec2(550, 680), ImGuiCond_FirstUseEver);
 
-    ImGui::Begin("Typical Custom Engine - Debug Display");
+    ImGui::Begin("Typical Custom Engine - Debug Display", NULL, ImGuiWindowFlags_MenuBar);
+
+    if (ImGui::BeginMenuBar())
+    {
+        if (ImGui::BeginMenu("File"))
+        {
+            if (ImGui::MenuItem("New Scene"))
+            {
+                std::cout << "New Scene | Currently not Implemented!\n";
+            }
+
+            if (ImGui::MenuItem("Delete Scene"))
+            {
+                std::cout << "Delete Scene | Currently not Implemented!\n";
+            }
+
+            if (ImGui::MenuItem("Load Scene"))
+            {
+                std::cout << "Load Scene | Currently not Implemented!\n";
+            }
+
+            if (ImGui::MenuItem("Quit (ESC)")) windowInfo.ContinueRunning = false;
+
+            ImGui::EndMenu();
+        }
+
+        if (ImGui::BeginMenu("Edit"))
+        {
+            if (ImGui::MenuItem("Undo (Ctrl + Z)"))
+            {
+                if (!isSceneLoaded) std::cout << "There is no Scene loaded to invoke this action with!\n";
+            }
+
+            if (ImGui::MenuItem("Redo (Ctrl + Shift + Z)"))
+            {
+                if (!isSceneLoaded) std::cout << "There is no Scene loaded to invoke this action with!\n";
+            }
+
+            if (ImGui::MenuItem("Preferences"))
+            {
+                std::cout << "Preferences Selected > Open Preferences Window when programmed here!\n";
+            }
+
+            ImGui::EndMenu();
+        }
+
+        if (ImGui::BeginMenu("Help"))
+        {
+            if (ImGui::MenuItem("About"))
+            {
+                std::cout << "Typical Custom Engine | Version: " << TCE_VERSION << " | Developed by: " << TCE_AUTHOR;
+            }
+
+            ImGui::EndMenu();
+        }
+
+        ImGui::EndMenuBar();
+    }
 
     ImGui::Text("> Hello World! This is my 'Typical Custom Engine' programmed entirely within C++ and with OpenGL!");
     ImGui::Text("> This menu specifically exists just to display debug information and allow basic editing of objects, lighting and lua objects.");
@@ -223,6 +331,81 @@ void Application::DebugInterface(float deltaTime)
         str5 << "Elapsed Time: " << glfwGetTime();
 
         ImGui::BulletText(str.str().c_str());
+        ImGui::BulletText(str2.str().c_str());
+        ImGui::BulletText(str3.str().c_str());
+        ImGui::BulletText(str4.str().c_str());
+        ImGui::BulletText(str5.str().c_str());
+    }
+
+    ImGui::Spacing();
+    ImGui::Separator();
+    ImGui::Spacing();
+
+    if (ImGui::CollapsingHeader("Window Information", ImGuiTreeNodeFlags_FramePadding))
+    {
+        std::stringstream str1;
+        str1 << "Title: " << windowInfo.GetWindowTitle();
+
+        std::stringstream str2;
+        str2 << "Background Color: (" << windowInfo.GetWindowColour()[0] << ", " << windowInfo.GetWindowColour()[1] << ", " << windowInfo.GetWindowColour()[2] << ")";
+
+        std::stringstream str3;
+        str3 << "Aspect Ratio: " << windowInfo.GetAspectRatio();
+
+        std::stringstream str4;
+        str4 << "Target Framerate: " << windowInfo.GetWindowFramerate();
+
+        unsigned int x, y;
+        windowInfo.GetWindowResolution(x, y);
+
+        std::stringstream str5;
+        str5 << "(Starting) Window Resolution: " << x << "x" << y;
+
+        int width, height;
+        glfwGetWindowSize(windowInfo.window, &width, &height);
+
+        std::stringstream str6;
+        str6 << "(Current) Window Resolution: " << width << "x" << height;
+
+        ImGui::BulletText(str1.str().c_str());
+        ImGui::BulletText(str2.str().c_str());
+        ImGui::BulletText(str3.str().c_str());
+        ImGui::BulletText(str4.str().c_str());
+        ImGui::BulletText(str5.str().c_str());
+        ImGui::BulletText(str6.str().c_str());
+    }
+
+    ImGui::Spacing();
+    ImGui::Separator();
+    ImGui::Spacing();
+
+    if (ImGui::CollapsingHeader("Camera", ImGuiTreeNodeFlags_FramePadding))
+    {
+        std::stringstream str1;
+        str1 << "Speed: " << camera.Speed;
+
+        std::stringstream str2;
+        str2 << "Field of View: " << camera.FOV;
+
+        std::string camType;
+
+        switch (camera.CameraType)
+        {
+            case CameraType::Free: camType = "Free"; break;
+            case CameraType::Orbit: camType = "Orbit"; break;
+            default: camType = "???"; break;
+        }
+
+        std::stringstream str3;
+        str3 << "Type: " << camType;
+
+        std::stringstream str4;
+        str4 << "Position: (" << camera.Position.x << ", " << camera.Position.y << ", " << camera.Position.z << ")";
+
+        std::stringstream str5;
+        str5 << "Rotation: (" << camera.Direction.x << ", " << camera.Direction.y << ", " << camera.Direction.z << ")";
+
+        ImGui::BulletText(str1.str().c_str());
         ImGui::BulletText(str2.str().c_str());
         ImGui::BulletText(str3.str().c_str());
         ImGui::BulletText(str4.str().c_str());

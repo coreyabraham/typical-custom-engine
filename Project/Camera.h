@@ -33,6 +33,8 @@ private:
     vec3 FRONT = { 0.0f, 0.0f, -1.0f };
     vec3 BACK = { 0.0f, 0.0f, 1.0f };
 
+    vec2 Last = vec2();
+
 public:
     float Speed = 5.0f;
 
@@ -42,14 +44,13 @@ public:
     float Yaw = -90.0f;
     float Pitch = 0.0f;
 
-    vec2 Last = vec2();
-
     float FOV = 45.0f;
     vec2 ClampFOV = vec2(1.0f, FOV);
 
     vec3 Position;
     vec3 Direction;
 
+    // This should be tinkered with, preferably removed
     vec3 ORBIT_viewportAngle = { 0, 1, 0 };
     vec3 ORBIT_viewportZoom = { 0, 1, 0 };
 
