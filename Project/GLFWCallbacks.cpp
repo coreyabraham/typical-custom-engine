@@ -7,6 +7,13 @@
 
 void ResizeCallback(GLFWwindow* window, int width, int height)
 {
+	Application* programPointer = (Application*)glfwGetWindowUserPointer(window);
+	if (!programPointer) return;
+
+	WindowInfo* windowInfo = programPointer->GetWindowInfo();
+	windowInfo->SetWindowResolution((unsigned int)width, (unsigned int)height);
+	windowInfo->SetAspectRatio();
+
     glViewport(0, 0, width, height);
 }
 

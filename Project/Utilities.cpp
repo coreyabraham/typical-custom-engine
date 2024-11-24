@@ -4,6 +4,16 @@
 #include <fstream>
 #include <iostream>
 
+bool DoesFileExist(std::string filename)
+{
+	std::ifstream fileStream(filename);
+	bool result = fileStream.good();
+	
+	fileStream.close();
+
+	return result;
+}
+
 std::string LoadFileAsString(std::string filename)
 {
 	std::stringstream fileContents;
@@ -12,8 +22,7 @@ std::string LoadFileAsString(std::string filename)
 	if (!fileStream.is_open())
 	{
 		std::cout << "Utilities.cpp | Could not read file with filename: " << filename << ", potentially does not exist.\n";
-		std::string empty;
-		return empty;
+		return "";
 	}
 
 	while (!fileStream.eof())
@@ -28,16 +37,15 @@ std::string LoadFileAsString(std::string filename)
 	return fileContents.str();
 }
 
+// TODO: Use `LoadFileAsString` Line Breaks to refine this method!
 std::vector<std::string> LoadFileAsStringVector(std::string filename)
 {
 	std::ifstream fileStream(filename);
-
 	std::vector <std::string> list;
 
 	if (!fileStream.is_open())
 	{
 		std::cout << "Utilities.cpp | Could not read file with filename: " << filename << ", potentially does not exist.\n";
-		std::string empty;
 		return list;
 	}
 

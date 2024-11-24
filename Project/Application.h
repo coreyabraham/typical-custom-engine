@@ -32,14 +32,19 @@ private:
 	Camera camera;
 
 	GLuint vertexBufferID = 0;
+
+	float deltaTime = 0.0f;
 protected:
 	bool isSceneLoaded = false;
 
 	// <TODO> TEMPORARY VALUE, PLEASE REPLACE WITH POINTER TO LOADED SCENE CLASS!
 	int currentlyLoadedScene = 0;
 
-	bool IsRunning() const;
-	void Update(float deltaTime);
+	void Run();
+	
+	void Update();
+	void Render();
+	void Debug();
 
 	WindowInfo windowInfo;
 	bool ImGuiWantsMouse;
@@ -55,7 +60,9 @@ public:
 	Application(int argc, char* argv[]);
 	~Application();
 
-	void Run();
+	WindowInfo* GetWindowInfo() { return &windowInfo; }
+
+	bool IsRunning() const;
 
 	void OnMouseClick(int mouseButton);
 	void OnMouseRelease(int mouseButton);
@@ -63,6 +70,4 @@ public:
 
 	void OnKeyPress(Key key);
 	void OnKeyRelease(Key key);
-
-	void DebugInterface(float deltaTime);
 };

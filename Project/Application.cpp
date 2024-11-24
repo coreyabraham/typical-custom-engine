@@ -41,7 +41,6 @@ using namespace LuaInCPP;
 Application::Application(int argc, char* argv[])
 {
     windowInfo = WindowInfo(Resolution);
-    windowInfo.SetWindowFramerate(60);
 
     shader = new ShaderProgram("Shaders\\_Default\\Shader.vert", "Shaders\\_Default\\Shader.frag");
     shader->UseShader();
@@ -57,49 +56,21 @@ Application::Application(int argc, char* argv[])
     glfwGetWindowContentScale(windowInfo.window, &xScale, &yScale);
     float pixelDensityScale = sqrtf(xScale * yScale);
 
+    IMGUI_CHECKVERSION();
     ImGui::CreateContext();
 
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+
+    // This is where it crashes, most likely due to `windowInfo` having corrupt memory data! Please fix!
     ImGui_ImplGlfw_InitForOpenGL(windowInfo.window, true);
+    
     ImGui_ImplOpenGL3_Init();
 
-    if (pixelDensityScale != -1.0f) ImGui::GetIO().FontGlobalScale = pixelDensityScale;
+    if (pixelDensityScale != -1.0f) io.FontGlobalScale = pixelDensityScale;
 
-    // LUA FILES NOT LOADING PROPERLY, PLEASE FIX!
-    LuaObject* testObj = LuaController.CreateObject();
-    testObj->LoadScript("Scripts\\Test.lua", "OnLoad");
-
-    std::cout << "\nCurrent Lua Count: " << LuaController.Count() << "\n";
-    std::cout << "File Path: " << LuaController.GetObject(0)->GetFilePath() << "\n";
-    std::cout << "Is Loaded: " << std::boolalpha << LuaController.GetObject(0)->IsLoaded() << "\n";
-
-    camera.CameraType = CameraType::Free;
-    camera.Position = vec3(0, 0, 0);
-
-    Light light;
-    light.direction = vec3(0, 1, 0);
-    light.colour = vec3(1, 1, 1);
-
-    lights.push_back(&light);
-
-    Mesh testMesh;
-    //testMesh.CreateFromFile("Meshes\\soulspear.obj");
-    testMesh.SetShape(ShapeType::Shape_Cube);
-    testMesh.CreateShape();
-
-    GameObject* obj = new GameObject();
-    obj->mesh = &testMesh;
-
-    obj->diffuseTexture = new Texture("Textures\\Soulspear\\soulspear_diffuse.tga");
-    obj->normalTexture = new Texture("Textures\\Soulspear\\soulspear_normal.tga");
-    obj->specularTexture = new Texture("Textures\\Soulspear\\soulspear_specular.tga");
-
-    objects.push_back(obj);
-
-    for (int i = (int)Key::Space; i < (int)Key::Invalid - 1; i++)
-    {
-        keyCache.insert({ (int)(Key)i, false });
-        std::cout << "Key: " << (int)(Key)i << " has been added into the keyCache!\n";
-    }
+    for (int i = (int)Key::Space; i < (int)Key::Invalid - 1; i++) keyCache.insert({ (int)(Key)i, false });
 
     Run();
 }
@@ -109,9 +80,6 @@ Application::~Application()
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
-
-    glfwDestroyWindow(windowInfo.window);
-    glfwTerminate();
 }
 
 bool Application::IsRunning() const
@@ -137,10 +105,10 @@ void Application::Run()
         {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            float deltaTime = (float)fixedDelta;
+            deltaTime = (float)fixedDelta;
             accumulator -= fixedDelta;
 
-            Update(deltaTime);
+            Update();
 
             ImDrawData* data = ImGui::GetDrawData();
             if (data) ImGui_ImplOpenGL3_RenderDrawData(data);
@@ -151,7 +119,7 @@ void Application::Run()
     }
 }
 
-void Application::Update(float deltaTime)
+void Application::Update()
 {
     double xpos, ypos;
     glfwGetCursorPos(windowInfo.window, &xpos, &ypos);
@@ -159,7 +127,7 @@ void Application::Update(float deltaTime)
 
     for (auto& iterator : keyCache)
     {
-        if (!iterator.second) continue;
+        if (!iterator.second || ImGuiWantsMouse) continue;
 
         switch ((Key)iterator.first)
         {
@@ -167,11 +135,17 @@ void Application::Update(float deltaTime)
             case Key::S: camera.Position -= (camera.Speed * camera.GetLookVector(Front)) * deltaTime; break;
             case Key::A: camera.Position -= (glm::normalize(glm::cross(camera.GetLookVector(Front), camera.GetLookVector(Up))) * camera.Speed) * deltaTime; break;
             case Key::D: camera.Position += (glm::normalize(glm::cross(camera.GetLookVector(Front), camera.GetLookVector(Up))) * camera.Speed) * deltaTime; break;
+
             case Key::Q: camera.Position.y -= (camera.Speed * deltaTime); break;
             case Key::E: camera.Position.y += (camera.Speed * deltaTime); break;
         }
     }
 
+    Render();
+}
+
+void Application::Render()
+{
     mat4 vpMatrix = camera.Draw(windowInfo.GetAspectRatio());
     shader->SetVec3Uniform("cameraPos", camera.Position);
 
@@ -188,20 +162,14 @@ void Application::Update(float deltaTime)
     shader->SetVec3VArrayUniform("lightColours", lightColours);
 
     // Object Updating
-    for (GameObject* object : objects) 
+    for (GameObject* object : objects)
         object->Update(deltaTime);
 
     // Object Rendering
-    for (GameObject* object : objects) 
+    for (GameObject* object : objects)
         object->Draw(shader, vpMatrix, camera.Position);
 
-    ImGui_ImplOpenGL3_NewFrame();
-    ImGui_ImplGlfw_NewFrame();
-    ImGui::NewFrame();
-
-    DebugInterface(deltaTime);
-
-    ImGui::Render();
+    Debug();
 }
 
 void Application::OnMouseClick(int mouseButton)
@@ -225,28 +193,57 @@ void Application::OnMouseScroll(double xDelta, double yDelta)
 void Application::OnKeyPress(Key key)
 {
     if (ImGuiWantsMouse) return;
+    
     std::cout << "Pressed: " << (int)key << "\n";
     
     if (keyCache.find((int)key) != keyCache.end())
         keyCache[(int)key] = true;
+    
+    if (key == Key::LeftShift)
+        camera.Speed = camera.HalfSpeed;
 }
 
 void Application::OnKeyRelease(Key key)
 {
     if (ImGuiWantsMouse) return;
+
     std::cout << "Released: " << (int)key << "\n";
     
     if (keyCache.find((int)key) != keyCache.end())
         keyCache[(int)key] = false;
+
+    if (key == Key::LeftShift)
+        camera.Speed = camera.FullSpeed;
 }
 
-void Application::DebugInterface(float deltaTime)
+void Application::Debug()
 {
-    ImGuiWantsMouse = ImGui::GetIO().WantCaptureMouse;
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
 
-    const ImGuiViewport* main_viewport = ImGui::GetMainViewport();
-    ImGui::SetNextWindowPos(ImVec2(main_viewport->WorkPos.x + 50, main_viewport->WorkPos.y + 20), ImGuiCond_FirstUseEver);
-    ImGui::SetNextWindowSize(ImVec2(550, 680), ImGuiCond_FirstUseEver);
+    ImGuiIO& io = ImGui::GetIO();
+    ImGuiWantsMouse = io.WantCaptureMouse;
+
+    ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoTitleBar |
+        ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
+        ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus |
+        ImGuiWindowFlags_NoBackground;
+
+    const ImGuiViewport* viewport = ImGui::GetMainViewport();
+
+    ImGui::SetNextWindowPos(viewport->Pos);
+    ImGui::SetNextWindowSize(viewport->Size);
+    ImGui::SetNextWindowViewport(viewport->ID);
+
+    ImGui::Begin("InvisibleWindow", nullptr, windowFlags);
+   
+    //ImGui::PopStyleVar(3);
+
+    ImGuiID dockSpaceId = ImGui::GetID("InvisibleWindowDockSpace");
+    ImGui::DockSpace(dockSpaceId, ImVec2(0.0f, 0.0f), ImGuiDockNodeFlags_PassthruCentralNode);
+
+    ImGui::End();
 
     ImGui::Begin("Typical Custom Engine - Debug Display", NULL, ImGuiWindowFlags_MenuBar);
 
@@ -355,11 +352,10 @@ void Application::DebugInterface(float deltaTime)
         std::stringstream str4;
         str4 << "Target Framerate: " << windowInfo.GetWindowFramerate();
 
-        unsigned int x, y;
-        windowInfo.GetWindowResolution(x, y);
+        auto res = windowInfo.GetWindowResolution();
 
         std::stringstream str5;
-        str5 << "(Starting) Window Resolution: " << x << "x" << y;
+        str5 << "(Starting) Window Resolution: " << res.first << "x" << res.second;
 
         int width, height;
         glfwGetWindowSize(windowInfo.window, &width, &height);
@@ -747,4 +743,14 @@ void Application::DebugInterface(float deltaTime)
     }
 
     ImGui::End();
+
+    ImGui::Render();
+
+    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+    {
+        GLFWwindow* backup_current_context = glfwGetCurrentContext();
+        ImGui::UpdatePlatformWindows();
+        ImGui::RenderPlatformWindowsDefault();
+        glfwMakeContextCurrent(backup_current_context);
+    }
 }

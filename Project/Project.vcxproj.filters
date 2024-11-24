@@ -31,26 +31,38 @@
     <Filter Include="Engine\Headers\Data">
       <UniqueIdentifier>{7c76333a-4e48-4af0-88be-b6eff00b1e5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Headers\Scenery">
+      <UniqueIdentifier>{da192c98-e09c-4864-a317-90c374fc6c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Headers\Control">
+      <UniqueIdentifier>{bdadb851-10f6-47e9-ac8b-e7d6c5957c64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Sources\Control">
+      <UniqueIdentifier>{bfd3cfa5-9e36-4064-9c96-7c612bb6683b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Sources\Scenery">
+      <UniqueIdentifier>{44fde7b8-bdd4-48c9-8e97-4cf7d2535902}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="WindowInfo.h">
-      <Filter>Engine\Headers</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowInfo.cpp">
-      <Filter>Engine\Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Utilities.cpp">
-      <Filter>Engine\Sources</Filter>
-    </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>Project\Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ShaderProgram.cpp">
-      <Filter>Engine\Sources</Filter>
     </ClCompile>
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="..\Dependencies\GLAD\glad.c">
       <Filter>Dependencies\GLAD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\GLAD\gl_core_4_4.c">
+      <Filter>Dependencies\GLAD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui_impl_opengl3.cpp">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui_tables.cpp">
+      <Filter>Dependencies\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dependencies\ImGui\imgui_widgets.cpp">
+      <Filter>Dependencies\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\Dependencies\ImGui\imgui.cpp">
       <Filter>Dependencies\ImGui</Filter>
@@ -64,58 +76,58 @@
     <ClCompile Include="..\Dependencies\ImGui\imgui_impl_glfw.cpp">
       <Filter>Dependencies\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dependencies\ImGui\imgui_impl_opengl3.cpp">
-      <Filter>Dependencies\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Dependencies\ImGui\imgui_tables.cpp">
-      <Filter>Dependencies\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Dependencies\ImGui\imgui_widgets.cpp">
-      <Filter>Dependencies\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="GLFWCallbacks.cpp">
-      <Filter>Engine\Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Engine\Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Engine\Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Vertex.cpp">
-      <Filter>Engine\Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Engine\Sources</Filter>
+    <ClCompile Include="WindowInfo.h">
+      <Filter>Engine\Headers\Data</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Engine\Sources</Filter>
+      <Filter>Engine\Sources\Scenery</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dependencies\GLAD\gl_core_4_4.c">
-      <Filter>Dependencies\GLAD</Filter>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Engine\Sources\Scenery</Filter>
+    </ClCompile>
+    <ClCompile Include="GLFWCallbacks.cpp">
+      <Filter>Engine\Sources\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Engine\Sources\Scenery</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>Engine\Sources\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Engine\Sources\Scenery</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilities.cpp">
+      <Filter>Engine\Sources\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex.cpp">
+      <Filter>Engine\Sources\Scenery</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowInfo.cpp">
+      <Filter>Engine\Sources\Control</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Utilities.h">
-      <Filter>Engine\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>Project\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="ShaderProgram.h">
-      <Filter>Engine\Headers</Filter>
+    <ClInclude Include="..\Dependencies\GLAD\glad.h">
+      <Filter>Dependencies\GLAD</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Engine\Headers</Filter>
+    <ClInclude Include="..\Dependencies\GLAD\gl_core_4_4.h">
+      <Filter>Dependencies\GLAD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dependencies\ImGui\imconfig.h">
-      <Filter>Dependencies\ImGui</Filter>
+    <ClInclude Include="Key.h">
+      <Filter>Engine\Headers\Data</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dependencies\ImGui\imgui.h">
-      <Filter>Dependencies\ImGui</Filter>
+    <ClInclude Include="Maths.h">
+      <Filter>Engine\Headers\Data</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dependencies\ImGui\imgui_impl_glfw.h">
-      <Filter>Dependencies\ImGui</Filter>
+    <ClInclude Include="Graphics.h">
+      <Filter>Engine\Headers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes.h">
+      <Filter>Engine\Headers\Data</Filter>
     </ClInclude>
     <ClInclude Include="..\Dependencies\ImGui\imgui_impl_opengl3.h">
       <Filter>Dependencies\ImGui</Filter>
@@ -138,44 +150,44 @@
     <ClInclude Include="..\Dependencies\ImGui\dirent.h">
       <Filter>Dependencies\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="GLFWCallbacks.h">
-      <Filter>Engine\Headers</Filter>
+    <ClInclude Include="..\Dependencies\ImGui\imconfig.h">
+      <Filter>Dependencies\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Engine\Headers</Filter>
+    <ClInclude Include="..\Dependencies\ImGui\imgui.h">
+      <Filter>Dependencies\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Engine\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>Engine\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Engine\Headers</Filter>
+    <ClInclude Include="..\Dependencies\ImGui\imgui_impl_glfw.h">
+      <Filter>Dependencies\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Engine\Headers</Filter>
+      <Filter>Engine\Headers\Scenery</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Engine\Headers\Scenery</Filter>
+    </ClInclude>
+    <ClInclude Include="GLFWCallbacks.h">
+      <Filter>Engine\Headers\Control</Filter>
     </ClInclude>
     <ClInclude Include="Light.h">
-      <Filter>Engine\Headers</Filter>
+      <Filter>Engine\Headers\Scenery</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dependencies\GLAD\glad.h">
-      <Filter>Dependencies\GLAD</Filter>
+    <ClInclude Include="Mesh.h">
+      <Filter>Engine\Headers\Scenery</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dependencies\GLAD\gl_core_4_4.h">
-      <Filter>Dependencies\GLAD</Filter>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>Engine\Headers\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Key.h">
-      <Filter>Engine\Headers\Data</Filter>
+    <ClInclude Include="Texture.h">
+      <Filter>Engine\Headers\Scenery</Filter>
     </ClInclude>
-    <ClInclude Include="Maths.h">
-      <Filter>Engine\Headers\Data</Filter>
+    <ClInclude Include="Utilities.h">
+      <Filter>Engine\Headers\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics.h">
-      <Filter>Engine\Headers\Data</Filter>
+    <ClInclude Include="Transform.h">
+      <Filter>Engine\Headers\Scenery</Filter>
     </ClInclude>
-    <ClInclude Include="Shapes.h">
-      <Filter>Engine\Headers\Data</Filter>
+    <ClInclude Include="Vertex.h">
+      <Filter>Engine\Headers\Scenery</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

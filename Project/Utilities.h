@@ -5,6 +5,8 @@
 
 #include "Maths.h"
 
+bool DoesFileExist(std::string filename);
+
 std::string LoadFileAsString(std::string filename);
 std::vector<std::string> LoadFileAsStringVector(std::string filename);
 
