@@ -40,20 +40,21 @@ using namespace LuaInCPP;
 
 Application::Application(int argc, char* argv[])
 {
-    windowInfo = WindowInfo(Resolution);
+    windowInfo = new WindowInfo(Resolution);
+    GLFWwindow* window = windowInfo->window;
 
     shader = new ShaderProgram("Shaders\\_Default\\Shader.vert", "Shaders\\_Default\\Shader.frag");
     shader->UseShader();
 
-    glfwSetWindowUserPointer(windowInfo.window, (void*)this);
+    glfwSetWindowUserPointer(window, (void*)this);
 
-    glfwSetWindowSizeCallback(windowInfo.window, ResizeCallback);
-    glfwSetMouseButtonCallback(windowInfo.window, MouseButtonCallback);
-    glfwSetScrollCallback(windowInfo.window, MouseWheelCallback);
-    glfwSetKeyCallback(windowInfo.window, KeyPressCallback);
+    glfwSetWindowSizeCallback(window, ResizeCallback);
+    glfwSetMouseButtonCallback(window, MouseButtonCallback);
+    glfwSetScrollCallback(window, MouseWheelCallback);
+    glfwSetKeyCallback(window, KeyPressCallback);
 
     float xScale, yScale;
-    glfwGetWindowContentScale(windowInfo.window, &xScale, &yScale);
+    glfwGetWindowContentScale(window, &xScale, &yScale);
     float pixelDensityScale = sqrtf(xScale * yScale);
 
     IMGUI_CHECKVERSION();
@@ -63,9 +64,7 @@ Application::Application(int argc, char* argv[])
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
     io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
-    // This is where it crashes, most likely due to `windowInfo` having corrupt memory data! Please fix!
-    ImGui_ImplGlfw_InitForOpenGL(windowInfo.window, true);
-    
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init();
 
     if (pixelDensityScale != -1.0f) io.FontGlobalScale = pixelDensityScale;
@@ -84,12 +83,12 @@ Application::~Application()
 
 bool Application::IsRunning() const
 {
-    return (glfwWindowShouldClose(windowInfo.window) == false && glfwGetKey(windowInfo.window, GLFW_KEY_ESCAPE) != GLFW_PRESS) && windowInfo.ContinueRunning == true;
+    return (glfwWindowShouldClose(windowInfo->window) == false && glfwGetKey(windowInfo->window, GLFW_KEY_ESCAPE) != GLFW_PRESS) && windowInfo->ContinueRunning == true;
 }
 
 void Application::Run()
 {
-    double fixedDelta = 1.0 / windowInfo.GetWindowFramerate();
+    double fixedDelta = 1.0 / windowInfo->GetWindowFramerate();
     double currentTime = glfwGetTime();
     double accumulator = 0.0;
 
@@ -97,9 +96,11 @@ void Application::Run()
     {
         double newTime = glfwGetTime();
         double frameTime = newTime - currentTime;
-        currentTime = newTime;
 
+        currentTime = newTime;
         accumulator += frameTime;
+        
+        elapsedTime = (float)glfwGetTime();
 
         while (accumulator >= fixedDelta)
         {
@@ -114,7 +115,7 @@ void Application::Run()
             if (data) ImGui_ImplOpenGL3_RenderDrawData(data);
         }
 
-        glfwSwapBuffers(windowInfo.window);
+        glfwSwapBuffers(windowInfo->window);
         glfwPollEvents();
     }
 }
@@ -122,7 +123,7 @@ void Application::Run()
 void Application::Update()
 {
     double xpos, ypos;
-    glfwGetCursorPos(windowInfo.window, &xpos, &ypos);
+    glfwGetCursorPos(windowInfo->window, &xpos, &ypos);
     cursorPos = vec2(xpos, ypos);
 
     for (auto& iterator : keyCache)
@@ -146,7 +147,7 @@ void Application::Update()
 
 void Application::Render()
 {
-    mat4 vpMatrix = camera.Draw(windowInfo.GetAspectRatio());
+    mat4 vpMatrix = camera.Draw(windowInfo->GetAspectRatio());
     shader->SetVec3Uniform("cameraPos", camera.Position);
 
     std::vector<vec3> lightDirections;
@@ -266,7 +267,7 @@ void Application::Debug()
                 std::cout << "Load Scene | Currently not Implemented!\n";
             }
 
-            if (ImGui::MenuItem("Quit (ESC)")) windowInfo.ContinueRunning = false;
+            if (ImGui::MenuItem("Quit (ESC)")) windowInfo->ContinueRunning = false;
 
             ImGui::EndMenu();
         }
@@ -309,6 +310,8 @@ void Application::Debug()
     ImGui::Text("> A more sophisticated menu system will be implemented soon that will allow you to manage scenes and the data within them!");
 
     ImGui::Spacing();
+    ImGui::Separator();
+    ImGui::Spacing();
 
     if (ImGui::CollapsingHeader("Generic Information", ImGuiTreeNodeFlags_FramePadding))
     {
@@ -319,13 +322,13 @@ void Application::Debug()
         str2 << "Lua Version: " << LUA_VERSION;
 
         std::stringstream str3;
-        str3 << "Target Framerate: " << windowInfo.GetWindowFramerate();
+        str3 << "Target Framerate: " << windowInfo->GetWindowFramerate();
 
         std::stringstream str4;
         str4 << "Delta Time: " << deltaTime;
 
         std::stringstream str5;
-        str5 << "Elapsed Time: " << glfwGetTime();
+        str5 << "Elapsed Time: " << elapsedTime;
 
         ImGui::BulletText(str.str().c_str());
         ImGui::BulletText(str2.str().c_str());
@@ -340,35 +343,50 @@ void Application::Debug()
 
     if (ImGui::CollapsingHeader("Window Information", ImGuiTreeNodeFlags_FramePadding))
     {
-        std::stringstream str1;
-        str1 << "Title: " << windowInfo.GetWindowTitle();
+        if (ImGui::TreeNode("Information"))
+        {
+            std::stringstream str1;
+            str1 << "Title: " << windowInfo->GetWindowTitle();
 
-        std::stringstream str2;
-        str2 << "Background Color: (" << windowInfo.GetWindowColour()[0] << ", " << windowInfo.GetWindowColour()[1] << ", " << windowInfo.GetWindowColour()[2] << ")";
+            std::stringstream str2;
+            str2 << "Background Color: (" << windowInfo->GetWindowColour()[0] << ", " << windowInfo->GetWindowColour()[1] << ", " << windowInfo->GetWindowColour()[2] << ")";
 
-        std::stringstream str3;
-        str3 << "Aspect Ratio: " << windowInfo.GetAspectRatio();
+            std::stringstream str3;
+            str3 << "Aspect Ratio: " << windowInfo->GetAspectRatio();
 
-        std::stringstream str4;
-        str4 << "Target Framerate: " << windowInfo.GetWindowFramerate();
+            std::stringstream str4;
+            str4 << "Target Framerate: " << windowInfo->GetWindowFramerate();
 
-        auto res = windowInfo.GetWindowResolution();
+            auto res = windowInfo->GetWindowResolution();
 
-        std::stringstream str5;
-        str5 << "(Starting) Window Resolution: " << res.first << "x" << res.second;
+            std::stringstream str5;
+            str5 << "(Starting) Window Resolution: " << res.first << "x" << res.second;
 
-        int width, height;
-        glfwGetWindowSize(windowInfo.window, &width, &height);
+            int width, height;
+            glfwGetWindowSize(windowInfo->window, &width, &height);
 
-        std::stringstream str6;
-        str6 << "(Current) Window Resolution: " << width << "x" << height;
+            std::stringstream str6;
+            str6 << "(Current) Window Resolution: " << width << "x" << height;
 
-        ImGui::BulletText(str1.str().c_str());
-        ImGui::BulletText(str2.str().c_str());
-        ImGui::BulletText(str3.str().c_str());
-        ImGui::BulletText(str4.str().c_str());
-        ImGui::BulletText(str5.str().c_str());
-        ImGui::BulletText(str6.str().c_str());
+            ImGui::BulletText(str1.str().c_str());
+            ImGui::BulletText(str2.str().c_str());
+            ImGui::BulletText(str3.str().c_str());
+            ImGui::BulletText(str4.str().c_str());
+            ImGui::BulletText(str5.str().c_str());
+            ImGui::BulletText(str6.str().c_str());
+
+            ImGui::TreePop();
+        }
+
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Spacing();
+
+        if (ImGui::TreeNode("Controls"))
+        {
+            ImGui::TextWrapped("Insert Controls for GLFW Window Here!");
+            ImGui::TreePop();
+        }
     }
 
     ImGui::Spacing();

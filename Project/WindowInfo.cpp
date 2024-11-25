@@ -15,7 +15,6 @@ WindowInfo::WindowInfo(unsigned int x, unsigned int y)
 {
 	SetWindowResolution(x, y);
 	SetAspectRatio();
-
 	SetupWindow();
 };
 
@@ -23,18 +22,20 @@ WindowInfo::WindowInfo(vec2 Resolution)
 {
 	SetWindowResolution(Resolution);
 	SetAspectRatio();
-	
 	SetupWindow();
 };
 
-int WindowInfo::SetupWindow()
+void WindowInfo::SetupWindow()
 {
+	if (calledWindowSetup) return;
+	calledWindowSetup = true;
+
 	if (DoesFileExist("config.conf")) SetupConfig();
 
 	if (!glfwInit())
 	{
 		std::cout << "WindowInfo.cpp | GLFW Failed to initalize for an unknown reason.\n";
-		return -1;
+		return;
 	}
 
 	window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
@@ -43,7 +44,7 @@ int WindowInfo::SetupWindow()
 	{
 		std::cout << "WindowInfo.cpp | Failed to create GLFW window!\n";
 		glfwTerminate();
-		return -1;
+		return;
 	}
 
 	glfwSetWindowUserPointer(window, (void*)this);
@@ -59,15 +60,13 @@ int WindowInfo::SetupWindow()
 		std::cout << "BasicApp.cpp | Failed to initalize GLAD!\n";
 		glfwDestroyWindow(window);
 		glfwTerminate();
-		return -1;
+		return;
 	}
 
 	glfwSwapInterval(1);
 
 	glClearColor(bgColour[0], bgColour[1], bgColour[2], 1.0f);
 	glEnable(GL_DEPTH_TEST);
-
-	return 0;
 };
 
 void WindowInfo::SetWindowColour(float colour[3])

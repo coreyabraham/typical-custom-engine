@@ -26,14 +26,14 @@ private:
 	// <TODO> Please assign this to the newer `Scene` class being made soon!
 	float bgColour[3] = { 0.25f, 0.25f, 0.25f };
 
+	bool calledWindowSetup = false;
 protected:
-	int SetupWindow();
-
+	void SetupWindow();
 	void SetupConfig();
 	void ApplyConfig(std::vector<ConfigParameter> Parameters);
 
 public:
-	GLFWwindow* window = nullptr;
+	GLFWwindow* window;
 	bool ContinueRunning = true;
 
 	WindowInfo() = default;

@@ -34,6 +34,9 @@ private:
 	GLuint vertexBufferID = 0;
 
 	float deltaTime = 0.0f;
+	float elapsedTime = 0.0f;
+
+	WindowInfo* windowInfo = nullptr;
 protected:
 	bool isSceneLoaded = false;
 
@@ -46,7 +49,6 @@ protected:
 	void Render();
 	void Debug();
 
-	WindowInfo windowInfo;
 	bool ImGuiWantsMouse;
 
 	LuaInCPP::Controller LuaController;
@@ -60,7 +62,7 @@ public:
 	Application(int argc, char* argv[]);
 	~Application();
 
-	WindowInfo* GetWindowInfo() { return &windowInfo; }
+	WindowInfo* GetWindowInfo() { return windowInfo; }
 
 	bool IsRunning() const;
 
