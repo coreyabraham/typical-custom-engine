@@ -23,7 +23,13 @@ WindowInfo::WindowInfo(vec2 Resolution)
 	SetWindowResolution(Resolution);
 	SetAspectRatio();
 	SetupWindow();
-};
+}
+
+void WindowInfo::SetWindowTitle(const char* Title) const
+{
+	title = std::string(Title);
+	glfwSetWindowTitle(window, Title);
+}
 
 void WindowInfo::SetupWindow()
 {
@@ -38,6 +44,7 @@ void WindowInfo::SetupWindow()
 		return;
 	}
 
+	if (title.empty()) title = std::string(FallbackTitle);
 	window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 
 	if (!window)

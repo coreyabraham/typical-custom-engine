@@ -385,6 +385,28 @@ void Application::Debug()
         if (ImGui::TreeNode("Controls"))
         {
             ImGui::TextWrapped("Insert Controls for GLFW Window Here!");
+
+            const size_t bufferSize = 256;
+            static char buffer[bufferSize];
+
+            ImGui::InputTextMultiline("Window Title", buffer, bufferSize, ImVec2(), ImGuiInputTextFlags_AllowTabInput);
+
+            if (ImGui::Button("Save Changes"))
+            {
+                windowInfo->SetWindowTitle(buffer);
+            }
+
+            if (ImGui::Button("Revert Changes"))
+            {
+                std::string windowTitle = windowInfo->GetWindowTitle();
+
+                if (windowTitle.length() < bufferSize)
+                {
+                    for (int i = 0; i < bufferSize; i++) buffer[i] = '\0';
+                    for (int i = 0; i < windowTitle.length(); i++) buffer[i] = windowTitle[i];
+                }
+            }
+
             ImGui::TreePop();
         }
     }
