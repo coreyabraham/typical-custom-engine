@@ -22,7 +22,7 @@ private:
 	unsigned int framerate = 0;
 
 	const char* FallbackTitle = "GLFW Window";
-	static std::string title;
+	std::string title;
 
 	// <TODO> Please assign this to the newer `Scene` class being made soon!
 	float bgColour[3] = { 0.25f, 0.25f, 0.25f };
@@ -44,7 +44,7 @@ public:
 	WindowInfo(vec2 Resolution);
 
 	const char* GetWindowTitle() const { return glfwGetWindowTitle(window); };
-	void SetWindowTitle(const char* Title) const;
+	void SetWindowTitle(const char* Title);
 
 	float GetAspectRatio() const { return aspectRatio; }
 	void SetAspectRatio() { aspectRatio = width / (float)height; }

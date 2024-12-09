@@ -79,11 +79,11 @@
     <LibraryPath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\;$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\;$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\LuaLibrary\headers;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\LuaLibrary\library\$(Configuration);$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\LuaLibrary\headers;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\LuaLibrary\library\$(Configuration);$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\;$(SolutionDir)Dependencies\AssImp\lib;$(SolutionDir)Dependencies\GLFW;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -126,13 +126,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\LuaLibrary\headers;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\LuaLibrary\library\$(Configuration);$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;lua54.lib;LuaLibrary.lib;assimp-vc143-mtd.lib;zlibstatic.lib;zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\Assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\LuaLibrary\headers;$(SolutionDir)Dependencies\LuaLibrary\lua\inlude;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\LuaLibrary\library\$(Configuration);$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\Assimp\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,7 +143,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\LuaLibrary\headers;$(SolutionDir)Dependencies\LuaLibrary\lua\include;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\LuaLibrary\library\$(Configuration);$(SolutionDir)Dependencies\AssImp\include\;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\GLAD;$(SolutionDir)Dependencies\SHs</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,7 +151,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;glfw3_mt.lib;glfw3dll.lib;lua54.lib;LuaLibrary.lib;assimp-vc143-mt.lib;zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\LuaLibrary;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\Assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\LuaLibrary\headers;$(SolutionDir)Dependencies\LuaLibrary\lua\inlude;$(SolutionDir)Dependencies\LuaLibrary\lua;$(SolutionDir)Dependencies\LuaLibrary\library\$(Configuration);$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\Assimp\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

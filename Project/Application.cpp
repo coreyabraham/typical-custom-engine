@@ -389,12 +389,9 @@ void Application::Debug()
             const size_t bufferSize = 256;
             static char buffer[bufferSize];
 
-            ImGui::InputTextMultiline("Window Title", buffer, bufferSize, ImVec2(), ImGuiInputTextFlags_AllowTabInput);
+            ImGui::InputText("Window Title", buffer, bufferSize, ImGuiInputTextFlags_AllowTabInput);
 
-            if (ImGui::Button("Save Changes"))
-            {
-                windowInfo->SetWindowTitle(buffer);
-            }
+            if (ImGui::Button("Save Changes")) windowInfo->SetWindowTitle((const char*)buffer);
 
             if (ImGui::Button("Revert Changes"))
             {
@@ -779,7 +776,23 @@ void Application::Debug()
 
     if (ImGui::CollapsingHeader("Lua", ImGuiTreeNodeFlags_FramePadding))
     {
-        // TODO: ADD CONTENTS HERE!
+        // TODO: ADD (ACTUAL) CONTENTS HERE!
+
+        if (ImGui::Button("Run Test Script"))
+        {
+            LuaObject* obj = new LuaObject();
+            bool result = obj->LoadScript("Scripts\\Test.lua", "OnLoad");
+            
+            if (!result) std::cout << "Loading Test.lua failed!\n";
+            else
+            {
+                obj->PushFunction("TestFunction");
+                obj->PushString("Hello World!");
+                obj->CallFunction(1, 0);
+            }
+
+            delete obj;
+        }
     }
 
     ImGui::End();

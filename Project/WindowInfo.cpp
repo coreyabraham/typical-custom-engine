@@ -25,7 +25,7 @@ WindowInfo::WindowInfo(vec2 Resolution)
 	SetupWindow();
 }
 
-void WindowInfo::SetWindowTitle(const char* Title) const
+void WindowInfo::SetWindowTitle(const char* Title)
 {
 	title = std::string(Title);
 	glfwSetWindowTitle(window, Title);
