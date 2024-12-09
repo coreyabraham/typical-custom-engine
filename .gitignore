@@ -40,10 +40,11 @@
 .ilk
 
 # Ignore Debug Directory
-x64/Debug
-x64/Release
-Project/x64
+**/x64/*
 
 # Ignore Bigger Library Files (Please find a solution to this in the near future!)
 Dependencies/AssImp/lib/assimp-vc143-mt.lib
 Dependencies/AssImp/lib/assimp-vc143-mtd.lib
+
+# Ignore Non-Essential Files
+**/Working/imgui.ini
