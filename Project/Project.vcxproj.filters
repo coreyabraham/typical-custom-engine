@@ -106,6 +106,9 @@
     <ClCompile Include="WindowInfo.cpp">
       <Filter>Engine\Sources\Control</Filter>
     </ClCompile>
+    <ClCompile Include="AudioPlayer.cpp">
+      <Filter>Engine\Sources\Control</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -188,6 +191,9 @@
     </ClInclude>
     <ClInclude Include="Vertex.h">
       <Filter>Engine\Headers\Scenery</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioPlayer.h">
+      <Filter>Engine\Headers\Control</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

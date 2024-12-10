@@ -32,10 +32,6 @@
 #include <iostream>
 #include <sstream>
 
-// This overwrites `LuaController.GetObject()`, please fix!
-//#define MINIAUDIO_IMPLEMENTATION
-//#include "miniaudio.h"
-
 using namespace LuaInCPP;
 
 Application::Application(int argc, char* argv[])
@@ -199,7 +195,18 @@ void Application::OnKeyPress(Key key)
     
     if (keyCache.find((int)key) != keyCache.end())
         keyCache[(int)key] = true;
-    
+
+    switch (key)
+    {
+    case Key::LeftShift: 
+        camera.Speed = camera.HalfSpeed;
+        break;
+
+    case Key::Space:
+        Audio.PlaySoundDirectly("Audio\\Sounds\\beep.mp3");
+        break;
+    }
+
     if (key == Key::LeftShift)
         camera.Speed = camera.HalfSpeed;
 }

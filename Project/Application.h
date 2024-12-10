@@ -22,6 +22,8 @@ constexpr auto TCE_AUTHOR = "Corey Abraham";
 
 #include "LuaInCPP.h"
 
+#include "AudioPlayer.h"
+
 class Application
 {
 private:
@@ -37,6 +39,8 @@ private:
 	float elapsedTime = 0.0f;
 
 	WindowInfo* windowInfo = nullptr;
+
+	AudioPlayer Audio = AudioPlayer();
 protected:
 	bool isSceneLoaded = false;
 
